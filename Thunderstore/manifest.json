@@ -1,7 +1,7 @@
 {
 	"name": "StageFilter",
 	"version_number": "1.0.0",
-	"website_url": "",
+	"website_url": "https://github.com/yunullvoid/StageFilter",
 	"description": "Filter which stages can appear during your runs through an in-game menu.",
 	"dependencies": [
 		"bbepis-BepInExPack-5.4.2121",
