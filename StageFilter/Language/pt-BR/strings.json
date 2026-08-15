@@ -1,0 +1,18 @@
+{
+  "strings": {
+    "STAGEFILTER_SETTINGS_DESCRIPTION": "Este mod permite você filtrar certos mapas que aparecerem durante suas jogatinas, com excessão de mapas opicionais e mapas obrigatórios para finalizar uma jogatina.",
+    "STAGEFILTER_SETTINGS_GENERAL_CATEGORY": "Geral",
+    "STAGEFILTER_SETTINGS_EXPANSIONICONS_TITLE": "Ícones de Expansões",
+    "STAGEFILTER_SETTINGS_EXPANSIONICONS_DESCRIPTION": "Exibe os ícones das expansões às quais os mapas pertencem.",
+    "RULE_HEADER_STAGES_TITLE": "Mapas",
+    "RULE_HEADER_STAGES_SUBTITLE": "Você pode bloquear alguns mapas da sua jogatina.",
+    "RULE_HEADER_STAGES_EDIT": "Habilite e desabilite mapas.",
+    "CHOICE_TOOLTIP_TITLE_STAGES": "- Fase",
+    "CHOICE_TOOLTIP_BODY_STAGES_ON": "Este mapa <style=cArtifact><b>pode</b></style> aparecer nesta jogatina.",
+    "CHOICE_TOOLTIP_BODY_STAGES_OFF": "Este mapa está <color=red><b>banido</b></color> desta jogatina.",
+    "POPUP_CANNOT_BLOCK_STAGE_HEADER": "AVISO",
+    "POPUP_CANNOT_BLOCK_STAGE_DESCRIPTION": "Não é possível banir todos os mapas de uma mesma fase! Isso quebra o jogo.",
+    "POPUP_CANNOT_BLOCK_STAGE_BUTTON": "OK",
+    "STAGEFILTER_CHAT_STAGESET_BANS": "<color=red>Bans da Fase {0}:</color> {1}"
+  }
+}

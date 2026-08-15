@@ -1,0 +1,18 @@
+{
+  "strings": {
+    "STAGEFILTER_SETTINGS_DESCRIPTION": "This mod allows you to filter out certain stages from your runs, with the exception of optional stages and stages required to complete a run.",
+    "STAGEFILTER_SETTINGS_GENERAL_CATEGORY": "General",
+    "STAGEFILTER_SETTINGS_EXPANSIONICONS_TITLE": "Expansion Icons",
+    "STAGEFILTER_SETTINGS_EXPANSIONICONS_DESCRIPTION": "Displays the icons of the expansions the stages belong to.",
+    "RULE_HEADER_STAGES_TITLE": "Stages",
+    "RULE_HEADER_STAGES_SUBTITLE": "You can filter out certain stages from your runs.",
+    "RULE_HEADER_STAGES_EDIT": "Enable or disable stages.",
+    "CHOICE_TOOLTIP_TITLE_STAGES": "- Stage",
+    "CHOICE_TOOLTIP_BODY_STAGES_ON": "This stage <style=cArtifact><b>may</b></style> appear in this run.",
+    "CHOICE_TOOLTIP_BODY_STAGES_OFF": "This stage is <color=red><b>banned</b></color> from this run.",
+    "POPUP_CANNOT_BLOCK_STAGE_HEADER": "WARNING",
+    "POPUP_CANNOT_BLOCK_STAGE_DESCRIPTION": "You can't ban all stages from the same stage set! Doing so would break the game.",
+    "POPUP_CANNOT_BLOCK_STAGE_BUTTON": "OK",
+    "STAGEFILTER_CHAT_STAGESET_BANS": "<color=red>Bans on Stage {0}:</color> {1}"
+  }
+}
