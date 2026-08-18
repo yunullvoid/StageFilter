@@ -14,15 +14,9 @@ namespace StageFilter;
 [BepInDependency("groovesalad.ExpansionManager", BepInDependency.DependencyFlags.SoftDependency)]
 [BepInDependency("com.rune580.riskofoptions", BepInDependency.DependencyFlags.SoftDependency)]
 
-[BepInPlugin(PluginGUID, PluginName, PluginVersion)]
+[BepInPlugin(MyPluginInfo.PLUGIN_GUID, MyPluginInfo.PLUGIN_NAME, MyPluginInfo.PLUGIN_VERSION)]
 public class StageFilter : BaseUnityPlugin
 {
-    public const string
-        PluginAuthor = "Yunull",
-        PluginName = "StageFilter",
-        PluginGUID = "com." + PluginAuthor + "." + PluginName,
-        PluginVersion = "1.0.0";
-
     public static new ManualLogSource Logger { get; private set; }
 
     public void Awake()

@@ -12,11 +12,20 @@
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
 		<PackageReference Include="BepInEx.Core" Version="5.4.21" />
+		<PackageReference Include="BepInEx.PluginInfoProps" Version="2.1.0" />
 		<PackageReference Include="UnityEngine.Modules" Version="2021.3.33" IncludeAssets="compile" />
 		<PackageReference Include="RiskOfRain2.GameLibs" Version="1.4.1.0-r.0" />
 		<PackageReference Include="MMHOOK.RoR2" Version="2025.11.19" NoWarn="NU1701" />
 		<PackageReference Include="Rune580.Mods.RiskOfRain2.RiskOfOptions" Version="2.8.5" />
 	</ItemGroup>
+
+	<PropertyGroup>
+		<AssemblyName>StageFilter</AssemblyName>
+		<RootNamespace>StageFilter</RootNamespace>
+		<Version>1.0.0</Version>
+		<BepInExPluginGuid>com.Yunull.StageFilter</BepInExPluginGuid>
+		<BepInExPluginName>StageFilter</BepInExPluginName>
+	</PropertyGroup>
 
 	<ItemGroup>
 		<None Remove="Assets\**" />
@@ -29,6 +38,7 @@
 	<PropertyGroup>
 		<RootDir>$(ProjectDir)..\</RootDir>
 		<ThunderstoreDir>$(RootDir)\Thunderstore\</ThunderstoreDir>
+		<Releases>$(RootDir)\Releases\</Releases>
 	</PropertyGroup>
 
 	<Target Name="CopyDLL" AfterTargets="Build">
@@ -41,6 +51,15 @@
 		</ItemGroup>
 
 		<Copy SourceFiles="@(LanguageFiles)" DestinationFiles="@(LanguageFiles->'$(ThunderstoreDir)\plugins\StageFilter\Language\%(RecursiveDir)%(Filename)%(Extension)')" />
+	</Target>
+
+	<Target Name="CreateReleaseZip" AfterTargets="Build" Condition="'$(Configuration)' == 'Release'">
+		<MakeDir Directories="$(Releases)" />
+	
+		<ZipDirectory 
+			SourceDirectory="$(ThunderstoreDir)" 
+			DestinationFile="$(Releases)\$(AssemblyName)-$(Version).zip" Overwrite="true">
+		</ZipDirectory>
 	</Target>
 
 </Project>

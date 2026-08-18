@@ -17,8 +17,8 @@ public static class ConfigManager
 
     private static void SetupConfigs(ConfigFile config)
     {
-        string GUID = StageFilter.PluginGUID;
-        string pluginName = StageFilter.PluginName;
+        string GUID = MyPluginInfo.PLUGIN_GUID;
+        string pluginName = MyPluginInfo.PLUGIN_NAME;
 
         Sprite icon = AssetLoader.LoadSpriteFromResource("StageFilter.Assets.mod_icon.png");
         ModSettingsManager.SetModIcon(icon);
