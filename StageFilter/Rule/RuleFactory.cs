@@ -37,7 +37,8 @@ internal class RuleFactory
         ExpansionDef stageRequiredExpansion = stage.RequiredExpansion;
         EntitlementDef stageRequiredEntitlement = stageRequiredExpansion?.requiredEntitlement;
         RuleDef ruleDef = new(StageRuleName + stageID, stageName);
-        string tooltipNameToken = $"{Language.GetString(stageName)} {Language.GetString("CHOICE_TOOLTIP_TITLE_STAGES")} {(int)stage.StageSet}";
+        string tooltipNameToken = Language.GetStringFormatted("CHOICE_TOOLTIP_TITLE_STAGES", [Language.GetString(stageName), (int)stage.StageSet]);
+
         // On
         RuleChoiceDef enabledChoice = ruleDef.AddChoice("On", stage);
         enabledChoice.sprite = StageDatabase.EnabledSpriteList[stageID];

@@ -7,7 +7,7 @@
     "RULE_HEADER_STAGES_TITLE": "Stages",
     "RULE_HEADER_STAGES_SUBTITLE": "You can filter out certain stages from your runs.",
     "RULE_HEADER_STAGES_EDIT": "Enable or disable stages.",
-    "CHOICE_TOOLTIP_TITLE_STAGES": "- Stage",
+    "CHOICE_TOOLTIP_TITLE_STAGES": "{0} - Stage {1}",
     "CHOICE_TOOLTIP_BODY_STAGES_ON": "This stage <style=cArtifact><b>may</b></style> appear in this run.",
     "CHOICE_TOOLTIP_BODY_STAGES_OFF": "This stage is <color=red><b>banned</b></color> from this run.",
     "POPUP_CANNOT_BLOCK_STAGE_HEADER": "WARNING",

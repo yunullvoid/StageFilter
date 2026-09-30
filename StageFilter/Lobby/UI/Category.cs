@@ -78,6 +78,19 @@ internal static class Category
         }
     }
 
+    /// <summary>
+    /// Without this, the name of the choice remains the same even after the language has been changed.
+    /// </summary>
+    public static void UpdateStageChoiceTooltipName(OnRuleChoiceController.orig_UpdateChoiceDisplay orig, RuleChoiceController self, RuleChoiceDef displayChoiceDef)
+    {
+        orig(self, displayChoiceDef);
+
+        if (displayChoiceDef.extraData is StageInfo stage)
+        {
+            displayChoiceDef.tooltipNameToken = Language.GetStringFormatted("CHOICE_TOOLTIP_TITLE_STAGES", [Language.GetString(stage.NameToken), (int)stage.StageSet]);
+        }
+    }
+
     public static void RemoveRandomChoicesButton(OnRuleCategoryController.orig_SetData orig, RuleCategoryController self, RuleCategoryDef categoryDef, RuleChoiceMask availability, RuleBook ruleBook)
     {
         orig(self, categoryDef, availability, ruleBook);

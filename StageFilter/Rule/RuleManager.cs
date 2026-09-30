@@ -14,6 +14,7 @@ public static class RuleManager
         OnRuleCategoryController.SetData += Category.RemoveRandomChoicesButton;
         OnRuleCategoryController.SetData += Category.UpdateChoicesVoteIcons;
         OnRuleChoiceController.UpdateChoiceDisplay += Category.AddExpansionIcons;
+        OnRuleChoiceController.UpdateChoiceDisplay += Category.UpdateStageChoiceTooltipName;
     }
 
     private static void AddCustomCategory(ILContext il)

@@ -7,7 +7,7 @@
     "RULE_HEADER_STAGES_TITLE": "Mapas",
     "RULE_HEADER_STAGES_SUBTITLE": "Você pode bloquear alguns mapas da sua jogatina.",
     "RULE_HEADER_STAGES_EDIT": "Habilite e desabilite mapas.",
-    "CHOICE_TOOLTIP_TITLE_STAGES": "- Fase",
+    "CHOICE_TOOLTIP_TITLE_STAGES": "{0} - Fase {1}",
     "CHOICE_TOOLTIP_BODY_STAGES_ON": "Este mapa <style=cArtifact><b>pode</b></style> aparecer nesta jogatina.",
     "CHOICE_TOOLTIP_BODY_STAGES_OFF": "Este mapa está <color=red><b>banido</b></color> desta jogatina.",
     "POPUP_CANNOT_BLOCK_STAGE_HEADER": "AVISO",
