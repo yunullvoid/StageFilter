@@ -29,7 +29,11 @@ public static class RuleManager
         {
             c.EmitDelegate(RuleFactory.CreateStagesCategory);
         }
-        else StageFilter.Logger.LogError("Failed to hook RuleCatalog.Init!");
+        else
+        {
+            StageFilter.Logger.LogError("Failed to hook RuleCatalog.Init!");
+            StageFilter.Logger.LogError("The Stages category cannot be added to the lobby!");
+        }
     }
 
     public static bool IsStageRule(RuleDef rule)

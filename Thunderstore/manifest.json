@@ -1,6 +1,6 @@
 ﻿{
 "name": "StageFilter",
-"version_number": "1.0.1",
+"version_number": "1.0.2",
 "website_url": "https://github.com/yunullvoid/StageFilter",
 "description": "Filter which stages can appear during your runs through an in-game menu.",
 "dependencies": [

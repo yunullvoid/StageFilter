@@ -63,11 +63,14 @@ public static class StageRegistry
 
     private static void RegisterStageSprites(SceneDef scene)
     {
+        // The game still uses this, even though it says it's obsolete
+        // If one day all the preview textures break, we'll have to change this
         Texture stagePreview = scene.previewTexture;
 
         if (stagePreview is null)
         {
             StageFilter.Logger.LogWarning($"The preview texture for the stage '{scene.cachedName}' is null.");
+            StageFilter.Logger.LogWarning("If this is a vanilla stage, kindly tell the mod creator to update the mod! :)");
 
             StageDatabase.EnabledSpriteList.Add(scene.baseSceneName, noPreviewOn);
             StageDatabase.DisabledSpriteList.Add(scene.baseSceneName, noPreviewOff);

@@ -55,7 +55,11 @@ internal static class Category
                 return result;
             });
         }
-        else StageFilter.Logger.LogError("Failed to hook PreGameController.RecalculateModifierAvailability!");
+        else
+        {
+            StageFilter.Logger.LogError("Failed to hook PreGameController.RecalculateModifierAvailability!");
+            StageFilter.Logger.LogError("Stages will not be disabled based on the ExpansionManager's choices!");
+        }
     }
 
     /// <summary>

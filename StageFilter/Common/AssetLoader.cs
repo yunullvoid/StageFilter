@@ -35,7 +35,13 @@ public static class AssetLoader
         using Stream stream = assembly.GetManifestResourceStream(resourceName);
 
         if (stream is null)
+        {
+            StageFilter.Logger.LogError(
+                $"Could not find embedded resource: {resourceName}"
+            );
+
             return null;
+        }
 
         byte[] data = new byte[stream.Length];
         stream.Read(data, 0, data.Length);

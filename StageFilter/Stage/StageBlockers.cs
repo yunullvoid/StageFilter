@@ -46,7 +46,11 @@ public static class StageBlockers
                 return result && isValidGamemode && !stageIsDisabled;
             });
         }
-        else StageFilter.Logger.LogError("Failed to hook BazaarController.SetUpSeerStations!");
+        else
+        {
+            StageFilter.Logger.LogError("Failed to hook BazaarController.SetUpSeerStations!");
+            StageFilter.Logger.LogError("Banned stages may appear on Seer Stations!");
+        }
     }
 
     private static bool Run_CanPickStage(On.RoR2.Run.orig_CanPickStage orig, Run self, SceneDef sceneDef)
