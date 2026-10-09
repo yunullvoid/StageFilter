@@ -26,13 +26,15 @@ public static class LobbyManager
         On.RoR2.PreGameController.StartRun += MultiplayerValidators.ValidateMultiplayerVotes;
         On.RoR2.Run.Start += Run_Start;
         On.RoR2.Run.BeginStage += Run_BeginStage;
+        On.RoR2.ExpansionManagement.ExpansionCatalog.SetExpansions += ExpansionIconLoader.SaveIcons;
 
-        if (IsThisModActive("groovesalad.ExpansionManager"))
-        {
-            StageFilter.Logger.LogInfo("ExpansionManager detected.");
-            StageFilter.Logger.LogInfo("Hooking PreGameController.RecalculateModifierAvailability...");
-            IL.RoR2.PreGameController.RecalculateModifierAvailability += Category.RecalculateStageAvailability;
-        }
+        // ExpansionManager got deprecated after Hallowed Concepts.
+        //if (IsThisModActive("groovesalad.ExpansionManager"))
+        //{
+        //    StageFilter.Logger.LogInfo("ExpansionManager detected.");
+        //    StageFilter.Logger.LogInfo("Hooking PreGameController.RecalculateModifierAvailability...");
+        //    IL.RoR2.PreGameController.RecalculateModifierAvailability += Category.RecalculateStageAvailability;
+        //}
     }
 
     public static void PreGameController_OnStart(On.RoR2.PreGameController.orig_Start orig, PreGameController self)
@@ -122,13 +124,14 @@ public static class LobbyManager
     public static bool IsValidGameMode(int gameModeIndex)
     {
         // GameMode Catalog
-        // BaseDefenseRun: 0
-        // ClassicRun: 1
-        // EclipseRun: 2
-        // InfiniteTowerRun: 3 (Simulacrum)
-        // WeeklyRun: 4        (Prismatic Trials)
-        bool isClassicRun = gameModeIndex == 1;
-        bool isEclipseRun = gameModeIndex == 2;
+        // ClassicRun: 0
+        // EclipseRun: 1
+        // WeeklyRun: 2 (Prismatic Trials)
+        // BaseDefenseRun: 3
+        // InfiniteTowerRun: 4 (Simulacrum)
+        bool isClassicRun = gameModeIndex == 0;
+        bool isEclipseRun = gameModeIndex == 1;
+
         return (isClassicRun || isEclipseRun);
     }
 

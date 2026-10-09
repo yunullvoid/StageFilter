@@ -18,7 +18,7 @@
 
 ---
 
-This mod allows you to filter which stages can appear during your runs through an in-game menu. Something similar to [ExpansionManager](https://thunderstore.io/c/riskofrain2/p/006/ExpansionManager/).
+This mod allows you to filter which stages can appear during your runs through an in-game menu.
 
 <p align="center" style="margin-top: 30px; margin-bottom: 40px">
     <img src="https://raw.githubusercontent.com/yunullvoid/StageFilter/refs/heads/main/media/category.png" width="75%"></img>
@@ -43,12 +43,11 @@ In multiplayer mode, the mod bans all the most-voted stages. If a set of stages 
 
 Mods that add custom stages using [R2API](https://thunderstore.io/c/riskofrain2/p/tristanmcpherson/R2API/) should work as intended. Aside from that, some compatible mods are:
 
-|                                                                                                                                                                                                                             |                                                                                   |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| <p align="center"><a href="https://thunderstore.io/c/riskofrain2/p/006/ExpansionManager/"><img width="100" src="https://ccdn.thunderstore.io/live/repository/icons/006-ExpansionManager-1.1.4.png"></img></a></p>           | [ExpansionManager](https://thunderstore.io/c/riskofrain2/p/006/ExpansionManager/) |
-| <p align="center"><a href="https://thunderstore.io/c/riskofrain2/p/Jaosnake/CENI/"><img width="100" src="https://ccdn.thunderstore.io/live/repository/icons/Jaosnake-CENI-1.0.0.png"></img></a></p>                         | [CENI](https://thunderstore.io/c/riskofrain2/p/Jaosnake/CENI/)                    |
-| <p align="center"><a href="https://thunderstore.io/c/riskofrain2/p/KingEnderBrine/ProperSave/"><img width="100" src="https://ccdn.thunderstore.io/live/repository/icons/KingEnderBrine-ProperSave-3.0.7.png"></img></a></p> | [ProperSave](https://thunderstore.io/c/riskofrain2/p/KingEnderBrine/ProperSave/)  |
-| <p align="center"><a href="https://thunderstore.io/package/AceOfShades/QuickRestart/"><img width="100" src="https://ccdn.thunderstore.io/live/repository/icons/AceOfShades-QuickRestart-1.6.1.png"></img></a></p>           | [QuickRestart](https://thunderstore.io/package/AceOfShades/QuickRestart/)         |
+|                                                                                                                                                                                                                             |                                                                                  |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| <p align="center"><a href="https://thunderstore.io/c/riskofrain2/p/Jaosnake/CENI/"><img width="100" src="https://ccdn.thunderstore.io/live/repository/icons/Jaosnake-CENI-1.0.0.png"></img></a></p>                         | [CENI](https://thunderstore.io/c/riskofrain2/p/Jaosnake/CENI/)                   |
+| <p align="center"><a href="https://thunderstore.io/c/riskofrain2/p/KingEnderBrine/ProperSave/"><img width="100" src="https://ccdn.thunderstore.io/live/repository/icons/KingEnderBrine-ProperSave-3.0.7.png"></img></a></p> | [ProperSave](https://thunderstore.io/c/riskofrain2/p/KingEnderBrine/ProperSave/) |
+| <p align="center"><a href="https://thunderstore.io/package/AceOfShades/QuickRestart/"><img width="100" src="https://ccdn.thunderstore.io/live/repository/icons/AceOfShades-QuickRestart-1.6.1.png"></img></a></p>           | [QuickRestart](https://thunderstore.io/package/AceOfShades/QuickRestart/)        |
 
 ## Bugs and Issues
 

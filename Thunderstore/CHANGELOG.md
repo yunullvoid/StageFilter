@@ -1,3 +1,10 @@
+## 1.0.3
+
+- Updated for Hallowed Concepts.
+- Updated dependencies.
+- Updated mod description.
+- Removed compatibility with ExpansionManager, as it has become deprecated.
+
 ## 1.0.2
 
 - Improved error logging.
