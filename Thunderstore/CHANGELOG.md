@@ -1,3 +1,8 @@
+## 1.0.4
+
+- Fix an issue where expansion icons would appear incorrectly when playing with modded expansions. (Thanks to Ellentonteam!)
+- Re-enabled compatibility with ExpansionManager.
+
 ## 1.0.3
 
 - Updated for Hallowed Concepts.

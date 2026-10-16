@@ -8,7 +8,7 @@ namespace StageFilter.Lobby;
 
 public static class ExpansionIconLoader
 {
-    public static readonly List<Sprite> ExpansionIconsList = [];
+    public static readonly Dictionary<string, Sprite> ExpansionIconsList = [];
 
     public static void SaveIcons(On.RoR2.ExpansionManagement.ExpansionCatalog.orig_SetExpansions orig, ExpansionDef[] newExpansionsDefs)
     {
@@ -16,23 +16,33 @@ public static class ExpansionIconLoader
 
         foreach (ExpansionDef expansion in newExpansionsDefs)
         {
-            AssetReferenceT<Sprite> iconReference = expansion.iconSpriteReference;
+            Sprite oldIconReference = expansion.iconSprite;
+            AssetReferenceT<Sprite> newIconReference = expansion.iconSpriteReference;
 
-            if (iconReference == null)
-                continue;
-
-            iconReference.LoadAssetAsync().Completed += handle =>
+            if (oldIconReference is not null)
             {
-                if (handle.Status == AsyncOperationStatus.Succeeded)
+                ExpansionIconsList[expansion.name] = oldIconReference;
+                continue;
+            }
+
+            if (newIconReference is null || !newIconReference.RuntimeKeyIsValid())
+            {
+                StageFilter.Logger.LogWarning($"Invalid icon reference for expansion {expansion.name}!");
+                ExpansionIconsList[expansion.name] = null;
+                continue;
+            }
+
+            newIconReference.LoadAssetAsync().Completed += handle =>
+            {
+                if (handle.Status != AsyncOperationStatus.Succeeded || handle.Result is null)
                 {
-                    ExpansionIconsList.Add(handle.Result);
+                    StageFilter.Logger.LogWarning($"Failed to load icon for expansion {expansion.name}!");
+                    ExpansionIconsList[expansion.name] = null;
+                    return;
                 }
-                else
-                {
-                    StageFilter.Logger.LogWarning($"Failed to load icon for expansion {expansion.name}.");
-                }
+
+                ExpansionIconsList[expansion.name] = handle.Result;
             };
         }
-
     }
 }

@@ -160,7 +160,7 @@ internal static class Category
         subIcon.sprite = (!isVanillaStage && hasNoExpansion)
             ? ThunderStoreIcon
             //: displayChoiceDef.requiredExpansionDef.iconSprite;
-            : ExpansionIconsList[(int)displayChoiceDef.requiredExpansionDef.expansionIndex];
+            : ExpansionIconsList[displayChoiceDef.requiredExpansionDef.name] ?? ThunderStoreIcon;
     }
 }
 

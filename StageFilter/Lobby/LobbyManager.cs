@@ -28,13 +28,12 @@ public static class LobbyManager
         On.RoR2.Run.BeginStage += Run_BeginStage;
         On.RoR2.ExpansionManagement.ExpansionCatalog.SetExpansions += ExpansionIconLoader.SaveIcons;
 
-        // ExpansionManager got deprecated after Hallowed Concepts.
-        //if (IsThisModActive("groovesalad.ExpansionManager"))
-        //{
-        //    StageFilter.Logger.LogInfo("ExpansionManager detected.");
-        //    StageFilter.Logger.LogInfo("Hooking PreGameController.RecalculateModifierAvailability...");
-        //    IL.RoR2.PreGameController.RecalculateModifierAvailability += Category.RecalculateStageAvailability;
-        //}
+        if (IsThisModActive("groovesalad.ExpansionManager"))
+        {
+            StageFilter.Logger.LogInfo("ExpansionManager detected.");
+            StageFilter.Logger.LogInfo("Hooking PreGameController.RecalculateModifierAvailability...");
+            IL.RoR2.PreGameController.RecalculateModifierAvailability += Category.RecalculateStageAvailability;
+        }
     }
 
     public static void PreGameController_OnStart(On.RoR2.PreGameController.orig_Start orig, PreGameController self)

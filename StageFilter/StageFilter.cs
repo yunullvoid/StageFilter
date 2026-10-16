@@ -11,9 +11,8 @@ namespace StageFilter;
 [BepInDependency("com.Jaosnake.CENI", BepInDependency.DependencyFlags.SoftDependency)]
 [BepInDependency("com.Wolfo.WolfoFixes", BepInDependency.DependencyFlags.SoftDependency)]
 [BepInDependency("com.KingEnderBrine.ProperSave", BepInDependency.DependencyFlags.SoftDependency)]
-// ExpansionManager got deprecated after Hallowed Concepts.
-//[BepInDependency("groovesalad.ExpansionManager", BepInDependency.DependencyFlags.SoftDependency)]
-[BepInIncompatibility("groovesalad.ExpansionManager")]
+[BepInDependency("groovesalad.ExpansionManager", BepInDependency.DependencyFlags.SoftDependency)]
+//[BepInIncompatibility("groovesalad.ExpansionManager")]
 [BepInDependency("com.rune580.riskofoptions", BepInDependency.DependencyFlags.HardDependency)]
 
 [BepInPlugin(MyPluginInfo.PLUGIN_GUID, MyPluginInfo.PLUGIN_NAME, MyPluginInfo.PLUGIN_VERSION)]
