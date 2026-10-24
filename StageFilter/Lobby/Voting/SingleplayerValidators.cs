@@ -42,7 +42,7 @@ public static class SingleplayerValidators
                     return;
                 }
             }
-            else if (Regex.IsMatch(globalName, @"^Expansions\.DLC[0-9]+(\.Stages)?$"))
+            else if (Regex.IsMatch(globalName, @"^Expansions\..+(\.Stages)?$"))
             {
                 string expansionID = globalName.Split('.')[1];
 
@@ -73,7 +73,7 @@ public static class SingleplayerValidators
         // -1 = Unselected
         //  0 = Enabled
         //  1 = Disabled
-        if (Regex.IsMatch(rule.globalName, @"^Expansions\.DLC[0-9]+(\.Stages)?$"))
+        if (Regex.IsMatch(rule.globalName, @"^Expansions\..+(\.Stages)?$"))
         {
             string expansionID = rule.globalName.Split('.')[1];
             bool isDisabled = choiceValue == 1;

@@ -30,7 +30,7 @@ internal class MultiplayerValidators
         var stageSetGroups = stageGroups.ToLookup(x => x.Key.StageSet);
 
         var expansionRules = self.readOnlyRuleBook.choices
-                            .Where(x => Regex.IsMatch(x.ruleDef.globalName, @"^Expansions\.DLC[0-9]+(\.Stages)?$"))
+                            .Where(x => Regex.IsMatch(x.ruleDef.globalName, @"^Expansions\..+(\.Stages)?$"))
                             .ToLookup(x => x.globalName.Split(".")[1]);
 
         foreach (var stageSet in stageSetGroups)
