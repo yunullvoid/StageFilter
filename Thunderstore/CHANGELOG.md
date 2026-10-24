@@ -1,6 +1,12 @@
+## 1.1.0
+
+- Addded a simple menu to see the banned stages, replacing chat messages.
+- Fixed an issue where the mod was unable to find modded expansion rules from ExpansionManager.
+- Updated mod description.
+
 ## 1.0.4
 
-- Fix an issue where expansion icons would appear incorrectly when playing with modded expansions. (Thanks to Ellentonteam!)
+- Fixed an issue where expansion icons would appear incorrectly when playing with modded expansions. (Thanks **Ellentonteam** for the bug report!)
 - Re-enabled compatibility with ExpansionManager.
 
 ## 1.0.3
@@ -17,7 +23,7 @@
 
 ## 1.0.1
 
-- Fix the issue where stage choice names in the lobby do not update after changing the game's language.
+- Fixed an issue where stage choice names in the lobby would not update after changing the game's language.
 
 ## 1.0.0
 

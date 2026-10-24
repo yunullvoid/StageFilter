@@ -87,7 +87,7 @@ public static class StageBlockers
 
             SceneDef replacement = FindReplacementScene(self);
 
-            if (replacement != null)
+            if (replacement is not null)
             {
                 StageFilter.Logger.LogDebug($"SEER SCENE REPLACED: {targetSceneDef.baseSceneName} -> {replacement.baseSceneName}");
                 seer.SetTargetScene(replacement);
@@ -112,7 +112,7 @@ public static class StageBlockers
 
             SceneDef scene = SceneCatalog.indexToSceneDef[seer.targetSceneDefIndex];
 
-            if (scene != null)
+            if (scene is not null)
                 takenScenes.Add(scene.baseSceneName);
         }
 
@@ -120,7 +120,7 @@ public static class StageBlockers
 
         foreach (SceneDef scene in SceneCatalog.allSceneDefs)
         {
-            if (scene == null)
+            if (scene is null)
                 continue;
 
             if (scene.filterOutOfBazaar)
@@ -138,7 +138,7 @@ public static class StageBlockers
             if (Run.instance.IsThisStageDisabled(scene))
                 continue;
 
-            if (scene.requiredExpansion != null &&
+            if (scene.requiredExpansion is not null &&
                 !Run.instance.IsExpansionEnabled(scene.requiredExpansion))
                 continue;
 

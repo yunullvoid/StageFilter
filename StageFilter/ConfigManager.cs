@@ -30,7 +30,7 @@ public static class ConfigManager
             "General",
             "Expansion Icons",
             true,
-            "If true, displays the icons of the expansions the maps belong to."
+            "If true, displays the icons of the expansions the stages belong to."
         );
 
         BaseOption option = new CheckBoxOption(AreDLCIconsEnabled);

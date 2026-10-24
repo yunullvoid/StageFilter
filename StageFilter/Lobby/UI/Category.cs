@@ -9,9 +9,9 @@ using StageFilter.Stage.Models;
 using UnityEngine;
 using UnityEngine.UI;
 using static StageFilter.Common.AssetLoader;
+using static StageFilter.Lobby.ExpansionIconLoader;
 using OnRuleCategoryController = On.RoR2.UI.RuleCategoryController;
 using OnRuleChoiceController = On.RoR2.UI.RuleChoiceController;
-using static StageFilter.Lobby.ExpansionIconLoader;
 
 namespace StageFilter.Lobby.UI;
 
@@ -159,7 +159,6 @@ internal static class Category
         subIcon.gameObject.SetActive(displayChoiceDef.localName != "Off");
         subIcon.sprite = (!isVanillaStage && hasNoExpansion)
             ? ThunderStoreIcon
-            //: displayChoiceDef.requiredExpansionDef.iconSprite;
             : ExpansionIconsList[displayChoiceDef.requiredExpansionDef.name] ?? ThunderStoreIcon;
     }
 }
