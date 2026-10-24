@@ -13,6 +13,8 @@
     "POPUP_CANNOT_BLOCK_STAGE_HEADER": "WARNING",
     "POPUP_CANNOT_BLOCK_STAGE_DESCRIPTION": "You can't ban all stages from the same stage set! Doing so would break the game.",
     "POPUP_CANNOT_BLOCK_STAGE_BUTTON": "OK",
-    "STAGEFILTER_CHAT_STAGESET_BANS": "<color=red>Bans on Stage {0}:</color> {1}"
+    "PAUSE_STAGE_BAN_LIST": "Banned Stages",
+    "BANLIST_DIALOG_HEADER": "Banned Stages",
+    "BANLIST_DIALOG_DESCRIPTION": "Stage {0}"
   }
 }

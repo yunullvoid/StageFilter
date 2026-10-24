@@ -13,6 +13,8 @@
     "POPUP_CANNOT_BLOCK_STAGE_HEADER": "AVISO",
     "POPUP_CANNOT_BLOCK_STAGE_DESCRIPTION": "Não é possível banir todos os mapas de uma mesma fase! Isso quebra o jogo.",
     "POPUP_CANNOT_BLOCK_STAGE_BUTTON": "OK",
-    "STAGEFILTER_CHAT_STAGESET_BANS": "<color=red>Bans da Fase {0}:</color> {1}"
+    "PAUSE_STAGE_BAN_LIST": "Mapas Banidos",
+    "BANLIST_DIALOG_HEADER": "Mapas Banidos",
+    "BANLIST_DIALOG_DESCRIPTION": "Fase {0}"
   }
 }

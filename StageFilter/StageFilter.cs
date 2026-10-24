@@ -19,9 +19,12 @@ namespace StageFilter;
 public class StageFilter : BaseUnityPlugin
 {
     public static new ManualLogSource Logger { get; private set; }
+    internal static StageFilter Instance { get; private set; }
 
     public void Awake()
     {
+        Instance = this;
+
         Logger = base.Logger;
         SetupLanguage();
         StageRegistry.ModInit();

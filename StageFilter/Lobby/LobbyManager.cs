@@ -1,11 +1,13 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using RoR2;
-using StageFilter.Common;
+using RoR2.UI;
 using StageFilter.Lobby.UI;
 using StageFilter.Lobby.Voting;
 using StageFilter.Stage.Models;
+using TMPro;
+using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 using static StageFilter.Common.ModDetectionUtil;
 using static StageFilter.Rule.RuleManager;
 
@@ -16,7 +18,7 @@ public static class LobbyManager
     public static LocalUser HostUser;
     public static bool PlayersCanVote;
     public static bool StageFilterIsAvailable = false;
-    public static ILookup<StageSet, string> BannedStages;
+    public static StageInfo[] BannedStages;
 
     public static void ModInit()
     {
@@ -27,6 +29,7 @@ public static class LobbyManager
         On.RoR2.Run.Start += Run_Start;
         On.RoR2.Run.BeginStage += Run_BeginStage;
         On.RoR2.ExpansionManagement.ExpansionCatalog.SetExpansions += ExpansionIconLoader.SaveIcons;
+        On.RoR2.UI.PauseScreenController.Awake += AddBanListButtonToPauseScreen;
 
         if (IsThisModActive("groovesalad.ExpansionManager"))
         {
@@ -64,21 +67,13 @@ public static class LobbyManager
         if (!IsValidGameMode((int)self.gameModeIndex) || !NetworkServer.active)
             return;
 
+        BanList.EmptyPages();
+
         UpdateBannedStages(self);
 
-        if (BannedStages.Count() > 0)
-        {
-            foreach (var stageSet in BannedStages)
-            {
-                int stageSetNumber = (int)stageSet.Key;
-                string stageNames = string.Join(", ", stageSet);
+        BanList.FillPages(BannedStages);
 
-                MessageUtil.SendBanMessage(
-                    "STAGEFILTER_CHAT_STAGESET_BANS",
-                    [$"{stageSetNumber}", stageNames]
-                );
-            }
-        }
+        StageFilter.Logger.LogDebug(BanList.pages.Count());
 
 #if DEBUG
         foreach (RuleChoiceDef choice in self.ruleBook.choices)
@@ -104,20 +99,34 @@ public static class LobbyManager
         if (sceneType != SceneType.Stage || currentScene.isFinalStage)
             return;
 
-        UpdateBannedStages(self);
+    }
 
-        int stageSetNumber = currentScene.stageOrder;
-        IEnumerable<string> stages = BannedStages[(StageSet)stageSetNumber];
+    // Adapted from QuickRestart by AceOfShades
+    // https://github.com/Maceris/quick-restart/blob/f1fdc4ec65c3b3d02f9f22e1c7be355269b4e1b5/QuickRestart.cs#L188
+    public static void AddBanListButtonToPauseScreen(On.RoR2.UI.PauseScreenController.orig_Awake orig, PauseScreenController self)
+    {
+        orig(self);
 
-        if (stages.Count() > 0)
-        {
-            string stageNames = string.Join(", ", stages);
+        // Only show during runs
+        if (Run.instance is null || PreGameController.instance) return;
 
-            MessageUtil.SendBanMessage(
-                "STAGEFILTER_CHAT_STAGESET_BANS",
-                [$"{stageSetNumber}", stageNames]
-            );
-        }
+        //Add button to the pause screen
+        Transform firstButton = self.mainPanel.GetChild(0).GetChild(1);
+        Transform banListButton = GameObject.Instantiate(firstButton, self.mainPanel.GetChild(0));
+
+        TextMeshProUGUI buttonText = banListButton.GetComponentInChildren<HGTextMeshProUGUI>();
+        buttonText.text = Language.GetStringFormatted("PAUSE_STAGE_BAN_LIST");
+        //The GUI refuses to update without literally replacing the component
+        Transform buttonTextParent = buttonText.transform.parent;
+        TextMeshProUGUI newButtonText = GameObject.Instantiate(buttonText, buttonTextParent);
+        GameObject.Destroy(buttonText);
+
+        HGButton restartHGButton = banListButton.GetComponent<HGButton>();
+        restartHGButton.onClick = new Button.ButtonClickedEvent();
+        restartHGButton.onClick.AddListener(() => ListUI.ShowBanListDialog(BanList.pages));
+
+        //banListButton.transform.SetAsLastSibling();
+        banListButton.transform.SetSiblingIndex(3);
     }
 
     public static bool IsValidGameMode(int gameModeIndex)
@@ -138,10 +147,10 @@ public static class LobbyManager
     {
         BannedStages = run.ruleBook.choices
         .Where(x => IsStageRule(x.ruleDef) && x.localName == "Off")
-        .ToLookup(
-            x => ((StageInfo)x.extraData).StageSet,
-            x => Language.GetString(((StageInfo)x.extraData).NameToken)
-        );
+        .Select(x => (StageInfo)x.extraData)
+        .OrderBy(x => x.StageSet)
+        .ThenBy(x => x.ID)
+        .ToArray();
     }
 
 }
